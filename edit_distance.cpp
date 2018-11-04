@@ -40,5 +40,27 @@ int main(){
    }
    cout<<"\n";
    cout<<"The edit distance is "<<arr[n1][n2];
+   i=n1;j=n2;
+   cout<<"\n";
+   int ans=arr[i][j];
+   while(i>0 && j>0){
+        if(s1[i-1]==s2[j-1]){
+            //cout<<s1[i-1]<<" ";
+            i--;
+            j--;
+        }
+        else{
+            ans=min(arr[i-1][j-1],arr[i][j-1],arr[i-1][j]);
+            if(ans==arr[i-1][j-1])
+             {
+                 cout<<s2[j-1]<<" is converted to "<<s1[i-1]<<"\n";
+                 i--;j--;}
+            else if(ans==arr[i-1][j]){
+                    cout<<s1[i-1]<<" is inserted \n";
+                i--;}
+            else{
+            cout<<s2[j-1]<<" is deleted \n";
+                j--;}}
+   }
    return 0;
 }
